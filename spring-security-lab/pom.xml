@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-lab-security</artifactId>
+    <artifactId>spring-security-lab</artifactId>
 
     <properties>
         <maven.compiler.source>23</maven.compiler.source>

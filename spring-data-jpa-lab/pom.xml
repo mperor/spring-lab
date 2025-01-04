@@ -10,7 +10,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-lab-data-jpa</artifactId>
+    <artifactId>spring-data-jpa-lab</artifactId>
 
     <dependencies>
         <dependency>

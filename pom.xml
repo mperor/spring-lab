@@ -18,8 +18,8 @@
     <description>Project to study Spring Boot</description>
 
     <modules>
-        <module>spring-lab-data-jpa</module>
-        <module>spring-lab-security</module>
+        <module>spring-data-jpa-lab</module>
+        <module>spring-security-lab</module>
     </modules>
 
     <properties>
