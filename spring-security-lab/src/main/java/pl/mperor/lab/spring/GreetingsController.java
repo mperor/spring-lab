@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingsController {
 
+    private final GreetingService service;
+
+    public GreetingsController(GreetingService service) {
+        this.service = service;
+    }
+
     @GetMapping("/")
     public String publicPage() {
         return "Public page 🟢";
@@ -13,7 +19,7 @@ public class GreetingsController {
 
     @GetMapping("/private")
     public String privatePage() {
-        return "Private page 🔑️!";
+        return "Private page 🔑(Secret room)! " + service.greetUser();
     }
 
 }
