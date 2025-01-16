@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -23,6 +24,7 @@ public class SecurityConfig {
                     authorizeHttp.requestMatchers("/favicon.ico").permitAll();
                     authorizeHttp.anyRequest().authenticated();
                 })
+                .addFilterBefore(new RobotFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin(Customizer.withDefaults())
                 .build();
     }
