@@ -34,6 +34,7 @@ public class SecurityConfig {
                     authorizeHttp.anyRequest().authenticated();
                 })
                 .addFilterBefore(new RobotFilter(authManager), UsernamePasswordAuthenticationFilter.class)
+                .authenticationProvider(new HackerAuthenticationProvider())
                 .formLogin(Customizer.withDefaults())
                 .build();
     }
