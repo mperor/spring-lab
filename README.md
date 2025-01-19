@@ -8,3 +8,6 @@
 ## Modules
 - **[spring-lab-data-jpa](spring-lab-data-jpa): Spring Data JPA**
 - **[spring-lab-security](spring-lab-security): Spring Security**
+
+## Trick & Tips
+- Spring boot magic 🪄 occurs in `spring-boot-autoconfigure` module
