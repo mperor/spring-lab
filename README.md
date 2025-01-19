@@ -6,8 +6,8 @@
 **SpringLab** serves as an experimental playground and knowledge base for Spring Boot (Java-based open-source framework).
 
 ## Modules
-- **[spring-lab-data-jpa](spring-lab-data-jpa): Spring Data JPA**
-- **[spring-lab-security](spring-lab-security): Spring Security**
+- **[spring-data-jpa-lab](spring-data-jpa-lab): Spring Data JPA**
+- **[spring-security-lab](spring-security-lab): Spring Security**
 
 ## Trick & Tips
 - Spring boot magic 🪄 occurs in `spring-boot-autoconfigure` module
