@@ -1,5 +1,6 @@
-logging.level:
-  org.springframework.security: TRACE
+#logging.level:
+#  org.springframework.security: TRACE
 
 # Useful classes during DEBUG session:
 # - FilterChainProxy
+# - DefaultSecurityFilterChain
