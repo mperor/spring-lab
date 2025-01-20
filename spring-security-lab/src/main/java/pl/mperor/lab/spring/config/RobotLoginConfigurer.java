@@ -4,6 +4,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
+import org.springframework.security.web.context.SecurityContextRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,8 @@ public class RobotLoginConfigurer extends AbstractHttpConfigurer<RobotLoginConfi
         // this also initializes objects, but can reuse objects from step 1, even from other configurers
         // -> Filters
         var authenticationManager = http.getSharedObject(AuthenticationManager.class);
-        http.addFilterBefore(new RobotFilter(authenticationManager), FilterSecurityInterceptor.class);
+        var securityContextRepository = http.getSharedObject(SecurityContextRepository.class);
+        http.addFilterBefore(new RobotFilter(authenticationManager, securityContextRepository), FilterSecurityInterceptor.class);
     }
 
     public RobotLoginConfigurer password(String password) {

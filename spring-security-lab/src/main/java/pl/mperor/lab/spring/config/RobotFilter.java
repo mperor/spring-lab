@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -18,9 +19,11 @@ public class RobotFilter extends OncePerRequestFilter {
     public static final String HEADER_NAME = "x-robot-password";
 
     private final AuthenticationManager authenticationManager;
+    private final SecurityContextRepository securityContextRepository;
 
-    public RobotFilter(AuthenticationManager authenticationManager) {
+    public RobotFilter(AuthenticationManager authenticationManager, SecurityContextRepository securityContextRepository) {
         this.authenticationManager = authenticationManager;
+        this.securityContextRepository = securityContextRepository;
     }
 
     @Override
@@ -45,6 +48,7 @@ public class RobotFilter extends OncePerRequestFilter {
             var newContext = SecurityContextHolder.createEmptyContext();
             newContext.setAuthentication(authenticate);
             SecurityContextHolder.setContext(newContext);
+            securityContextRepository.saveContext(newContext, request, response);
             filterChain.doFilter(request, response);
         } catch (AuthenticationException e) {
             // WRONG 👎

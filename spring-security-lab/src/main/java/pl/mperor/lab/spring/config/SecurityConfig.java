@@ -48,9 +48,10 @@ public class SecurityConfig {
 
     @Bean
     public ApplicationListener<AuthenticationSuccessEvent> successListener() {
-        return event -> System.out.println("🎉 SUCCESS [%s] %s".formatted(
+        return event -> System.out.printf(
+                "🎉 SUCCESS [%s] %s%n",
                 event.getAuthentication().getClass().getSimpleName(),
-                event.getAuthentication().getName())
+                event.getAuthentication().getName()
         );
     }
 }
