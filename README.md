@@ -6,6 +6,7 @@
 **SpringLab** serves as an experimental playground and knowledge base for Spring Boot (Java-based open-source framework).
 
 ## Modules 🗂️
+- **[spring-core-lab](spring-core-lab): Spring Core 🌱**
 - **[spring-data-jpa-lab](spring-data-jpa-lab): Spring Data JPA 💾**
 - **[spring-security-lab](spring-security-lab): Spring Security 🔐**
 

@@ -18,6 +18,7 @@
     <description>Project to study Spring Boot</description>
 
     <modules>
+        <module>spring-core-lab</module>
         <module>spring-data-jpa-lab</module>
         <module>spring-security-lab</module>
     </modules>
