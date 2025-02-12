@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface UuidRepository extends JpaRepository<UuidEntity, UUID> {
+interface UuidRepository extends JpaRepository<UuidEntity, UUID> {
 
     //@Query("from UuidEntity e left join fetch e.creator")
     @EntityGraph(attributePaths = {"creator"})
