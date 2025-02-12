@@ -1,12 +1,15 @@
 package pl.mperor.lab.spring.data.jpa.hibernate.magic;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Supplier;
 
 @Service
-public class UuidService {
+class UuidService {
 
     private final UuidRepository uuidRepository;
     private final UuidPairRepository pairRepository;
@@ -42,5 +45,23 @@ public class UuidService {
 
     List<UuidPairEntity> findPairs() {
         return pairRepository.findAll();
+    }
+
+    // Spring rolls back only for unchecked exceptions (RuntimeException and Error) by default.
+    // Use @Transactional(rollbackFor = Exception.class) to rollback on checked exceptions.
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    void saveWithException(String name, Supplier<Exception> exceptionToThrow) throws Exception {
+        save(name);
+        throw exceptionToThrow.get();
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
+    void saveWithRollbackForException(String name, Supplier<Exception> exceptionToThrow) throws Exception {
+        save(name);
+        throw exceptionToThrow.get();
+    }
+
+    long count() {
+        return uuidRepository.count();
     }
 }
