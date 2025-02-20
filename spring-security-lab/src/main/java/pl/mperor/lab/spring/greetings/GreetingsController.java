@@ -1,4 +1,4 @@
-package pl.mperor.lab.spring;
+package pl.mperor.lab.spring.greetings;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,5 +21,4 @@ public class GreetingsController {
     public String privatePage() {
         return "Private page 🔑(Secret room)! " + service.greetUser();
     }
-
 }

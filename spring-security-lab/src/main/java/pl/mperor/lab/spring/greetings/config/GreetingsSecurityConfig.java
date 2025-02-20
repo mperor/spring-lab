@@ -1,24 +1,20 @@
-package pl.mperor.lab.spring.config;
+package pl.mperor.lab.spring.greetings.config;
 
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class GreetingsSecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain greetingsSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .securityMatcher("/**")
                 .authorizeHttpRequests(authorizeHttp -> {
                     authorizeHttp.requestMatchers("/").permitAll();
                     authorizeHttp.requestMatchers("/error").permitAll();
@@ -33,25 +29,5 @@ public class SecurityConfig {
                 )
                 .authenticationProvider(new HackerAuthenticationProvider())
                 .build();
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new InMemoryUserDetailsManager(
-                User.builder()
-                        .username("user")
-                        .password("{noop}password")
-                        .authorities("ROLE user")
-                        .build()
-        );
-    }
-
-    @Bean
-    public ApplicationListener<AuthenticationSuccessEvent> successListener() {
-        return event -> System.out.printf(
-                "🎉 SUCCESS [%s] %s%n",
-                event.getAuthentication().getClass().getSimpleName(),
-                event.getAuthentication().getName()
-        );
     }
 }

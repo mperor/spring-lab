@@ -1,4 +1,4 @@
-package pl.mperor.lab.spring.config;
+package pl.mperor.lab.spring.greetings.config;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,7 +25,7 @@ public class RobotAuthentication implements Authentication {
     }
 
     public static RobotAuthentication authenticated() {
-        return new RobotAuthentication(AuthorityUtils.createAuthorityList("ROLE_robot"), null);
+        return new RobotAuthentication(AuthorityUtils.createAuthorityList("ROLE_ROBOT"), null);
     }
 
     @Override

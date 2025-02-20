@@ -1,4 +1,4 @@
-package pl.mperor.lab.spring.config;
+package pl.mperor.lab.spring.greetings.config;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;

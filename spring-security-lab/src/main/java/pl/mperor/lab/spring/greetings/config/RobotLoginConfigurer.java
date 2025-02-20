@@ -1,4 +1,4 @@
-package pl.mperor.lab.spring.config;
+package pl.mperor.lab.spring.greetings.config;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
