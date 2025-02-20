@@ -1,4 +1,4 @@
-package pl.mperor.lab.spring.config;
+package pl.mperor.lab.spring.greetings.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -60,6 +60,4 @@ public class RobotFilter extends OncePerRequestFilter {
 
         // 2. Do the Rest™️
     }
-
-
 }

@@ -4,3 +4,6 @@
 # Useful classes during DEBUG session:
 # - FilterChainProxy
 # - DefaultSecurityFilterChain
+
+jwt:
+  key: 404a91cf551282839e3fa9afff8bc366add5c7bf6d983a1c03557ad7c0c050ab
