@@ -7,6 +7,7 @@
 
 ## Modules 🗂️
 - **[spring-core-lab](spring-core-lab): Spring Core 🌱**
+- **[spring-web-lab](spring-web-lab): Spring Web 🌐**
 - **[spring-data-jpa-lab](spring-data-jpa-lab): Spring Data JPA 💾**
 - **[spring-security-lab](spring-security-lab): Spring Security 🔐**
 
