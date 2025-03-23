@@ -1,0 +1,8 @@
+#spring: # Spring ThreadPoolTaskExecutor customization
+#  task:
+#    execution:
+#      pool: # Doesn't have an effect if virtual threads are enabled.
+#        core-size: 5 # (default = 8)
+#        max-size: 10 # Ignored if the queue is unbounded.
+#        queue-capacity: 100
+#      thread-name-prefix: async-
