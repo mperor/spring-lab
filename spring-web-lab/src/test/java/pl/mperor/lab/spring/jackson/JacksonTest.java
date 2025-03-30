@@ -15,6 +15,7 @@ public class JacksonTest {
 
     @Autowired
     private JacksonTester<Sample> sampleTester;
+
     @Autowired
     private JacksonTester<Map<String, Sample>> wrappedTester;
 
@@ -36,7 +37,7 @@ public class JacksonTest {
         Assertions.assertThat(wrappedTester.write(wrapped)).isEqualToJson("""
                 {
                     "sample" : {
-                       "integer" : 1,
+                        "integer" : 1,
                         "string" : "Text"
                     }
                 }
