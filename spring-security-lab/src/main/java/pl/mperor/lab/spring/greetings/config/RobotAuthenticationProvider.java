@@ -17,16 +17,16 @@ public class RobotAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        var authRequest = (RobotAuthentication) authentication;
+        var authRequest = (RobotAuthenticationToken) authentication;
         if (!passwords.contains(authRequest.getPassword())) {
             throw new BadCredentialsException("You are not Ms Robot 🤖🛑");
         }
 
-        return RobotAuthentication.authenticated();
+        return RobotAuthenticationToken.authenticated();
     }
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return RobotAuthentication.class.isAssignableFrom(authentication);
+        return RobotAuthenticationToken.class.isAssignableFrom(authentication);
     }
 }
