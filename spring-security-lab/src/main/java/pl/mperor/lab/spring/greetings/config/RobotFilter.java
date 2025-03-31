@@ -40,13 +40,13 @@ public class RobotFilter extends OncePerRequestFilter {
 
         // 1. Authentication Decision
         String password = request.getHeader(HEADER_NAME);
-        var unauthenticated = RobotAuthentication.unauthenticated(password);
+        var unauthenticated = RobotAuthenticationToken.unauthenticated(password);
 
         try {
             // OK 👍
-            var authenticate = authenticationManager.authenticate(unauthenticated);
+            var authenticated = authenticationManager.authenticate(unauthenticated);
             var newContext = SecurityContextHolder.createEmptyContext();
-            newContext.setAuthentication(authenticate);
+            newContext.setAuthentication(authenticated);
             SecurityContextHolder.setContext(newContext);
             securityContextRepository.saveContext(newContext, request, response);
             filterChain.doFilter(request, response);

@@ -5,6 +5,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public class HackerAuthenticationProvider implements AuthenticationProvider {
 
@@ -12,10 +14,14 @@ public class HackerAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         if ("hacker".equals(username)) {
+            var hacker = User.withUsername("hacker")
+                    .password("~~ignored~~") // 😎 hacker don't need password
+                    .roles("admin", "user")
+                    .build();
             return UsernamePasswordAuthenticationToken.authenticated(
-                    "hacker",
-                    null, // 😎 hacker don't need credentials
-                    AuthorityUtils.createAuthorityList("ROLE_ADMIN")
+                    hacker,
+                    null,
+                    hacker.getAuthorities()
             );
         }
         return null;
