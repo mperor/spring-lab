@@ -17,3 +17,7 @@ springdoc:
   swagger-ui:
     use-root-path: true
     display-request-duration: true
+
+server:
+  error:
+    include-binding-errors: always
