@@ -22,6 +22,7 @@
         <module>spring-data-jpa-lab</module>
         <module>spring-security-lab</module>
         <module>spring-web-lab</module>
+        <module>spring-restfull-lab</module>
     </modules>
 
     <properties>
