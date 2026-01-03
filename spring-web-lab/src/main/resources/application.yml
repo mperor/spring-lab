@@ -7,6 +7,7 @@
 #logging:
 #  level:
 #    org.springframework.boot.actuate: DEBUG
+#    org.springframework.test: DEBUG # ⇒ Cachable beans logging
 
 #spring:
 #  jackson:

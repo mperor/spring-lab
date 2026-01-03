@@ -25,7 +25,7 @@ class AuthControllerTest {
     }
 
     @Test
-    void shouldReturnUnauthorizedWithInValidUserCredentials() throws Exception {
+    void shouldReturnUnauthorizedWithInvalidUserCredentials() throws Exception {
         this.mvc.perform(post("/api/auth/token")
                         .with(httpBasic("admin", "admin")))
                 .andExpect(status().isUnauthorized());
